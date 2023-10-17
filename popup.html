@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salary Calculator</title>
+  <meta charset='UTF-8' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #FFFFFF;
+      width: 400px;
+      padding: 20px;
+      background-color: #F81894;
+    }
+
+    h1 {
+      font-size: 1.563rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="number"], input[type="text"] {
+      width: 100%;
+      padding: 12px 8px;
+      border-width: 0;
+      background-color: #FFFFFF;
+      font-size: 1.25rem;
+      color: rgba(0, 0, 0, 0.7);
+      margin-right: 0.5rem;
+    }
+
+    select {
+      padding: 12px 8px;
+      background-color: #FFFFFF;
+      font-size: 1.25rem;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 24px;
+      background-color: #FFFFFF;
+      border: none;
+      outline: none;
+      color: #F81894;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    a {
+      color: #FFFFFF;
+    }
+
+    .one-line {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section {
+      margin-bottom: 1rem;
+    }
+
+    .percent {
+      font-size: 1.25rem;
+    }
+
+    #api-key-form, #main-form {
+      display: none;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Salary Calculator</h1>
+
+  <form id="api-key-form">
+    <div class="section">
+      <label for="currencyFromInput">Currency conversion API key: (get it <a target="_blank" href="https://freecurrencyapi.com/">here</a>)</label>
+
+      <input autofocus type="text" id="apiKey">
+    </div>
+    <div class="section">
+      <button id="saveApiKey" type="submit">Save</button>
+    </div>
+  </form>
+
+  <form id="main-form">
+    <div class="section">
+      <label for="currencyFromInput">From:</label>
+
+      <div class="one-line">
+        <input autofocus type="number" id="currencyFromInput">
+        <select id="currencyFromSelect"></select>
+      </div>
+    </div>
+
+    <div class="section">
+      <label for="currencyToSelect">To:</label>
+
+      <select id="currencyToSelect"></select>
+    </div>
+
+    <div class="section">
+      <label for="taxRateInput">Tax rate:</label>
+
+      <div class="one-line">
+        <input autofocus type="number" id="taxRateInput">
+        <span class="percent">%</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <button id="calculateButton" type="submit">Calculate</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </form>
+
+  <script src="popup.js"></script>
+</body>
+</html>
